@@ -20,8 +20,8 @@ function Login() {
       <form>
         <Icon onClick={toBack}/>
         <Title>Log in</Title>
-        <Input type={"email"}/>
-        <Input type="password" />
+        <Input type={"email"} placeholder="email"/>
+        <Input type="password" placeholder="senha"/>
         <Button.Fill >
           log in
         </Button.Fill>
