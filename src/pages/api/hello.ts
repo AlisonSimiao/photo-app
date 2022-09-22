@@ -1,13 +1,22 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { User } from "@prisma/client";
+import UserControler from '../../controllers/user';
 
-type Data = {
-  name: string
-}
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  const data = req.query as Omit<User, "id">;
+  try{
+    const user  = new UserControler();
+    const result = await user.create(data);
+    res.status(200).json(result);
+  }
+  catch(error){
+    
+    return res.status(error?.status).json(error)
+  }
+  
 }

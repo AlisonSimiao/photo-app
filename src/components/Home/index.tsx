@@ -5,7 +5,6 @@ import { Content, Logo, Painel, Wrapper } from './styles';
 
 function Home() {
   const router = useRouter();
-
     
   return (
     <>

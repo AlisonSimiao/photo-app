@@ -1,7 +1,6 @@
 import styled from "styled-components"
-import background from "./../../assets/IMG/background.svg"
-import logo from "./../../assets/IMG/logo.svg"
-
+const background = "./IMG/background.svg"
+const logo = "./IMG/logo.svg"
 
 export const Wrapper = styled.div`
     display: grid;
@@ -18,7 +17,7 @@ export const Wrapper = styled.div`
 export const Content =  styled.div`
     height: 100%;
     width: 100%;
-    background-image: url(${background.src});
+    background-image: url(${background});
     background-size: cover;
 
     display: flex;
@@ -31,7 +30,7 @@ export const Content =  styled.div`
 export const Logo =  styled.div`
     height: 10.65vh;
     width: 54vw;
-    background-image: url(${logo.src});
+    background-image: url(${logo});
     background-size: 100% 100%;
     position: relative;
 
@@ -45,7 +44,7 @@ export const Logo =  styled.div`
         position: absolute;
         height: 100%;
         width: 100%;
-        background-image: url(${logo.src});
+        background-image: url(${logo});
         background-size: 100% 100%;
         filter: invert(.5);
         z-index: -2;
@@ -63,7 +62,7 @@ export const Logo =  styled.div`
         
         height: 100%;
         width: 100%;
-        background-image: url(${logo.src});
+        background-image: url(${logo});
         background-size: 100% 100%;
         filter: invert(1);
         z-index: -1;
@@ -94,11 +93,4 @@ export const Painel = styled.div`
         gap: 1vh;
         
     }
-`
-
-export const LoginButton = styled.button`
-
-`
-export const RegisterButton = styled.button`
-
 `
