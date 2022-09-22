@@ -1,2 +1,2 @@
-GET http://localhost:3000/api/hello?email=alison
+GET http://localhost:3000/api/hello?email=alison&nickname=alison_simiao
 Accept: application/json

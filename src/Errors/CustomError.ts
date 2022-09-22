@@ -5,7 +5,10 @@ class CustomError extends Error{
         super();
         this.status= status;
         this.message= message;
-        this.name=name
+        this.name=name;
+
+        Object.setPrototypeOf(this, CustomError.prototype);
+
     }
 }
 

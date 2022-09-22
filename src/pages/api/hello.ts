@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { User } from "@prisma/client";
 import UserControler from '../../controllers/user';
+import CustomError from '../../Errors/CustomError';
 
 
 export default async function handler(
@@ -15,8 +16,9 @@ export default async function handler(
     res.status(200).json(result);
   }
   catch(error){
-    
-    return res.status(error?.status).json(error)
+    if( error instanceof CustomError)
+      return res.status(error.status).json(error)
+      res.status(400).json(error);
   }
   
 }
