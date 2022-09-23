@@ -1,38 +1,69 @@
+import { User } from '@prisma/client'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import Button from '../../Button'
 import { Input } from '../Input'
 import { Icon, Title, Wrapper } from './styles'
 
-type registerType = {
-  email: string;
-  nickname: string;
-  password: string;
-};
-
 function Register() {
   const router = useRouter()
   const [step, setStep] = useState(true);
-  const [register, setRegister] = useState<registerType>({} as registerType);
+  const [created, setCreted] = useState(false);
+  const [Loading, setLoading] = useState(false);
+  const [register, setRegister] = useState({} as Omit<User, "id">);
 
   const next = () => {
-    console.log(step)
-    setStep(! step);
+    setStep(!step);
   }
 
   function toBack() {
-    router.push("/")
+    if (step)
+      return router.push("/")
+    next();
   }
 
-  const onSubmit = (evt: React.FormEvent) => {
+  const onSubmit = async (evt: React.FormEvent) => {
     evt.preventDefault();
-    next()
+    setLoading(true);
+
+    if( created ){
+      return router.push("/signin");
+    }
+
+    switch (step) {
+      case true:
+        setLoading(false);
+        return next()
+      case false:
+
+        const response = await fetch("/api/user/create", {
+          method: "POST",
+          body: JSON.stringify(register)
+        })
+        const data = await response.json();
+
+        setLoading(false);
+
+        if (response.status < 400){
+          setCreted(true);
+          return toast.success("Bem vindo " + data.nickname);
+
+        }   
+        
+        return toast.error(data.message);
+    }
+
+
+
   }
 
   function handleInput(evt: { target: { name: string; value: string } }) {
     const { name, value } = evt.target;
     setRegister({ ...register, [name]: value })
   }
+
+  const notify = () => toast("Wow so easy!");
   return (
     <>
       <title>
@@ -45,20 +76,22 @@ function Register() {
           {
             step
               ? (
-
                 <>
-                  <Input placeholder={"email"} type={"email"} onChange={handleInput} name="email" value={register?.email} />
-                  <Input placeholder="password" type="password" onChange={handleInput} name="password" value={register?.password}/>
-                  <Button.Fill type='submit' >
+                  <Input placeholder={"email"} type={"email"} onChange={handleInput} name="email" value={register.email} required />
+                  <Input placeholder="password" type="password" onChange={handleInput} name="password" value={register.password} required />
+                  <Button.Fill type='submit' Loading={Loading}>
                     next
                   </Button.Fill></>
               )
               :
               (
                 <>
-                  <Input placeholder={"nickname"} type={"text"} onChange={handleInput} name="nickname" value={register?.nickname} />
-                  <Button.Fill type='submit'>
-                    sign up
+                  <Input placeholder={"nickname"} type={"text"} onChange={handleInput} name="nickname" value={register.nickname} required />
+
+                  <Button.Fill type='submit' Loading={Loading} status={ created? "success": undefined }>
+                    { created
+                    ? "sign In" 
+                    : "sign up" }
                   </Button.Fill>
                 </>
 

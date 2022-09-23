@@ -82,7 +82,7 @@ export const Painel = styled.div`
     gap: 3vh;
     grid-column: 2;
     
-    padding: 3vw;
+    padding: 15vw;
     min-height: 13vh;
     width: 100%;
 
@@ -91,6 +91,6 @@ export const Painel = styled.div`
         grid-row: 2;
         flex-direction: row;
         gap: 1vh;
-        
+        padding: 3vw;
     }
 `

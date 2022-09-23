@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
-import React from 'react'
+import { NextRouter, Router, useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react'
 import Button from '../Button';
 import { Content, Logo, Painel, Wrapper } from './styles';
 
 function Home() {
-  const router = useRouter();
-    
+  const [router, setRouter] = useState<NextRouter>(useRouter())    
+
   return (
     <>
       <title>
@@ -15,17 +15,19 @@ function Home() {
         <Content>
           <Logo />
         </Content>
-        
+
         <Painel>
           <Button.Empty
-            onClick={()=>{
+            full
+            onClick={() => {
               router.push("/signin")
             }}
           >
             Log IN
           </Button.Empty>
           <Button.Fill
-            onClick={()=>{
+            full
+            onClick={() => {
               router.push("/signup")
             }}
           >

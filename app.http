@@ -1,2 +1,17 @@
-GET http://localhost:3000/api/hello?email=alison&nickname=alison_simiao
+POST  http://localhost:3000/api/user/create
 Accept: application/json
+
+{
+    "email": "alisono@gmail.com",
+    "nickname": "alison si5miao",
+    "password": "123456"
+};
+
+###login
+POST  http://localhost:3000/api/auth/signin
+Accept: application/json
+
+{
+    "email": "alisono@gmail.com",
+    "password": "123456"
+}

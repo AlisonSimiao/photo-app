@@ -8,7 +8,6 @@ class CustomError extends Error{
         this.name=name;
 
         Object.setPrototypeOf(this, CustomError.prototype);
-
     }
 }
 
