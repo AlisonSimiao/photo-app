@@ -8,6 +8,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <meta name="theme-color" content="#000"/>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
