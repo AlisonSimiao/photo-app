@@ -6,11 +6,14 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
     }
+
     body{
         width: 100vw;
         height: 100vh;
         font-family: 'Roboto', sans-serif;
+        position: relative;
     }
+
 
     @keyframes up {
         0%{
