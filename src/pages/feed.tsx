@@ -4,11 +4,14 @@ import useLayout from '../stored/hook/useLayout'
 function feed() {
   const { auth } = useLayout()
 
-  auth();
+  useEffect(()=>{
+    auth();
+  })
+  
   
   return (
     <div>
-      janvkjsnclkn
+      lkncaklsnclk
     </div>
   )
 }

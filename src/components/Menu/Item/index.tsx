@@ -7,15 +7,19 @@ type ItemProps = {
   link: string;
   active: boolean;
   onClick: ()=> void;
+  props?: {
+    close: ()=> void;
+    open: ()=> void;
+  }
 }
 
-function Item({ Icon, link, active, onClick }: ItemProps) {
+function Item({ Icon, link, props, active, onClick }: ItemProps) {
   return (
     <Link href={link}>
     
     <Box active={active} onClick={onClick}>
       {
-        Icon && <Icon />
+        Icon && <Icon close={ props && props.close} open={ props && props.open} />
       }
 
     </Box>

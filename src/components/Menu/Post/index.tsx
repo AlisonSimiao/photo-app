@@ -1,18 +1,14 @@
-import React, { useState } from 'react'
-import CreatePost from '../../CreatePost'
+import React from 'react'
 import { IconPost } from '../mobile/styles'
-
-function Post() {
-
-  const [activePost, setActivePost] = useState(true)
-  const close = ()=> setActivePost(false)
-  const open = ()=> setActivePost(true)
+type Props = {
+  open: () => void
+}
+function Post({open} : Props) {
 
   return (
-    <>
-      <IconPost onClick={open}/>
-      {activePost && <CreatePost close={close}/>}
-    </>
+    <div>
+      <IconPost onClick={open} />
+    </div>
   )
 }
 

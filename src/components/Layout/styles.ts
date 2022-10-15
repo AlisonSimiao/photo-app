@@ -7,9 +7,10 @@ export const Wraper = styled.div`
 `
 
 export const Content = styled.div`
+    background-color: red;
     display: grid;
-    width: max(60vw, 500px);
+    width: min(60vw, 500px);
     height: 100vh;
     
-    grid-template-rows: 1fr 10vh;
+    grid-template-rows: 4fr 10vh;
 `

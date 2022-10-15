@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Header, Wrapper } from './styles'
+import { Close, Container, Header, Wrapper } from './styles'
 type Props = {
   close: () => void
 }
@@ -8,6 +8,7 @@ type Props = {
 function CreatePost({ close }: Props) {
   return (
     <Wrapper onClick={close}>
+      <Close onClick={close}/>
       <Container>
         <Header >
           <span>
