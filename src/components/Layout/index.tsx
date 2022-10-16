@@ -2,13 +2,14 @@ import useLayout from "../../stored/hook/useLayout";
 import Auth from "./Auth";
 import Freedom from "./Freedom";
 
-export type valuesLayout = {
+
+export interface valuesLayout  {
     auth: ()=> void;
     freedom: ()=> void;
     App: number;
-}
+};
 
-export type LayoutProps = {
+export interface LayoutProps  {
     Component?: any;
     pageProps?: any;
 } 

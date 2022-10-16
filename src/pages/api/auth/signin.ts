@@ -8,8 +8,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if(! (req.method === "POST") )
-    return res.status(500).json({messae: "not implement"})
-
+    return res.status(501).json({messae: "not implement"})
+   
     try{
         const data = JSON.parse(req.body) as User;
         const user = new UserControler();

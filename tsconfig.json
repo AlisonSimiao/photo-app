@@ -18,6 +18,6 @@
     "outDir": "dist",
     
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.js", "next.config.js"],
   "exclude": ["node_modules"]
 }

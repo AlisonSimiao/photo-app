@@ -12,9 +12,7 @@ function MyApp({ Component, pageProps } : app.AppProps) {
     <ContextLayoutProvider>
 
       <Layout Component={Component}  pageProps={ pageProps } />
-     
-    </ContextLayoutProvider>
-    <ToastContainer
+      <ToastContainer
             position="top-right"
             autoClose={5000}
             hideProgressBar={false}
@@ -25,6 +23,8 @@ function MyApp({ Component, pageProps } : app.AppProps) {
             draggable
             pauseOnHover
           />
+    </ContextLayoutProvider>
+    
   </>
 }
 

@@ -29,7 +29,6 @@ function Login() {
     const data = await response.json();
 
     setLoading(false);
-
     
     if( response.status < 400){
       router.push("/feed");
@@ -38,9 +37,13 @@ function Login() {
       return toast.success("Bem vindo " + user.nickname );
     }
     
+    if( !!data  )
+      return toast.error("intern error")
     toast.error((data as CustomError).message)
+    
   }
-  catch(error){
+  catch(error: any){
+    toast.error( error );
     console.error("erro>", error );
   }
 

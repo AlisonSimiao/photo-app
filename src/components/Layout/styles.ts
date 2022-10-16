@@ -1,16 +1,18 @@
-import styled from "styled-components";
+import styled from "styled-components"
+
+export const Test = styled.div`
+    background-color: green;
+    color: green;
+`
 
 export const Wraper = styled.div`
-    display: flex ;
-
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 `
 
 export const Content = styled.div`
-    background-color: red;
     display: grid;
-    width: min(60vw, 500px);
-    height: 100vh;
-    
-    grid-template-rows: 4fr 10vh;
+    grid-template-rows: 1fr 10vh;
+    height: 100vh;   
 `

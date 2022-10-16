@@ -5,13 +5,13 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        text-rendering: optimizeSpeed;
     }
 
     body{
         width: 100vw;
         height: 100vh;
         font-family: 'Roboto', sans-serif;
-        position: relative;
     }
 
 
